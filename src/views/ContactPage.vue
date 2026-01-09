@@ -21,7 +21,7 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
-              <span>{{ t('contact.form.prepopulatedSubject', { product: productInterest }) }}</span>
+              <span>Inquiry about {{ productInterest }}</span>
             </div>
             
             <form @submit.prevent="handleSubmit" class="space-y-6">
@@ -94,7 +94,7 @@
                   id="subject"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  :placeholder="productInterest ? t('contact.form.prepopulatedSubject', { product: productInterest }) : $t('contact.form.subjectPlaceholder')"
+                  :placeholder="$t('contact.form.subjectPlaceholder')"
                 />
               </div>
 
@@ -289,8 +289,8 @@ const whatsappHref = computed(() => `https://wa.me/${contactPhone.value.replace(
 
 const applyProductPrefill = () => {
   if (productInterest.value) {
-    formData.value.subject = t('contact.form.prepopulatedSubject', { product: productInterest.value })
-    formData.value.message = t('contact.form.prepopulatedMessage', { product: productInterest.value })
+    formData.value.subject = `Inquiry about ${productInterest.value}`
+    formData.value.message = `Hello,\n\nI am interested in learning more about ${productInterest.value}. Please provide information about:\n\n- Pricing and minimum order quantities\n- Shipping options and delivery times\n- Product specifications\n\nThank you!`
   }
 }
 
