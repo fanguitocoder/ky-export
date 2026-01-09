@@ -17,6 +17,12 @@
           <!-- Contact Form -->
           <div class="bg-white rounded-xl shadow-lg p-8 md:p-10">
             <h2 class="text-3xl font-display font-bold text-gray-900 mb-6">{{ $t('contact.form.title') }}</h2>
+            <div v-if="productInterest" class="mb-4 p-3 rounded-lg bg-primary-50 border border-primary-100 text-primary-800 text-sm font-medium flex items-center space-x-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>{{ t('contact.form.prepopulatedSubject', { product: productInterest }) }}</span>
+            </div>
             
             <form @submit.prevent="handleSubmit" class="space-y-6">
               <!-- Name -->
@@ -187,7 +193,7 @@
                   </div>
                   <div class="ml-4">
                     <h3 class="font-semibold text-gray-900 mb-1">{{ $t('contact.info.phoneLabel') }}</h3>
-                    <a :href="phoneHref" class="text-primary-700 hover:text-primary-800">{{ contactPhone }}</a>
+                    <a :href="whatsappHref" class="text-primary-700 hover:text-primary-800">{{ contactPhone }}</a>
                     <p class="text-sm text-gray-500 mt-1">{{ $t('contact.info.phoneNote') }}</p>
                   </div>
                 </div>
@@ -239,7 +245,7 @@
                   {{ $t('contact.quickActions.about') }}
                 </router-link>
                 <a
-                  :href="phoneHref"
+                  :href="whatsappHref"
                   class="flex items-center text-primary-700 hover:text-primary-800 font-medium group"
                 >
                   <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,14 +285,20 @@ const productInterest = ref(null)
 const contactEmail = computed(() => t('contact.info.email'))
 const contactPhone = computed(() => t('contact.info.phone'))
 const emailHref = computed(() => `mailto:${contactEmail.value}`)
-const phoneHref = computed(() => `tel:${contactPhone.value.replace(/\s+/g, '')}`)
+const whatsappHref = computed(() => `https://wa.me/${contactPhone.value.replace(/\D/g, '')}`)
+
+const applyProductPrefill = () => {
+  if (productInterest.value) {
+    formData.value.subject = t('contact.form.prepopulatedSubject', { product: productInterest.value })
+    formData.value.message = t('contact.form.prepopulatedMessage', { product: productInterest.value })
+  }
+}
 
 // Prepopulate form if coming from product page
 onMounted(() => {
   if (route.query.product) {
     productInterest.value = route.query.product
-    formData.value.subject = t('contact.form.prepopulatedSubject', { product: route.query.product })
-    formData.value.message = t('contact.form.prepopulatedMessage', { product: route.query.product })
+    applyProductPrefill()
   }
 })
 
@@ -311,6 +323,8 @@ const handleSubmit = async () => {
     subject: '',
     message: ''
   }
+
+  applyProductPrefill()
   
   // Hide success message after 5 seconds
   setTimeout(() => {
