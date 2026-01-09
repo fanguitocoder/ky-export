@@ -149,6 +149,56 @@ export default {
       title: '¿No Encuentra lo que Necesita?',
       subtitle: 'Contáctenos para consultas de productos personalizados y pedidos al por mayor',
       button: 'Contáctenos'
+    },
+    items: {
+      washingMachine: {
+        name: 'Lavadora de Carga Frontal Milexus',
+        description: 'Lavadora de 8 kg de capacidad con 14 programas de lavado. Tecnología inverter para un funcionamiento silencioso y de larga duración.'
+      },
+      airConditioner: {
+        name: 'Aire Acondicionado Split Milexus 18000 BTU',
+        description: 'Enfriamiento potente con tecnología inverter de bajo consumo. Purificación de aire integrada y control de temperatura inteligente. Ideal para espacios amplios.'
+      },
+      smartTv: {
+        name: 'Televisor Inteligente Milexus 4K 55"',
+        description: 'Resolución Ultra HD 4K con soporte HDR10+. Plataforma inteligente con apps de streaming. Imagen nítida y sonido envolvente.'
+      },
+      refrigerator: {
+        name: 'Refrigerador Doble Puerta Milexus',
+        description: 'Capacidad de 420L con tecnología de enfriamiento avanzada. Eficiencia energética y operación no frost. Almacenamiento amplio con repisas ajustables.'
+      },
+      microwave: {
+        name: 'Horno Microondas Milexus 30L',
+        description: 'Microondas digital con función grill. Capacidad de 30L con menús de cocción automática. Interior de acero inoxidable para fácil limpieza.'
+      },
+      gasCooker: {
+        name: 'Cocina a Gas Milexus 4 Quemadores',
+        description: 'Cocina de gas de grado profesional con horno. Parrillas de hierro fundido. Múltiples tamaños de quemadores para cocinar con versatilidad.'
+      },
+      blender: {
+        name: 'Licuadora Milexus 1000W',
+        description: 'Licuadora de alto rendimiento con motor de 1000W. Jarra de vidrio de 1.5L. Varias velocidades para batidos, sopas y más.'
+      },
+      kettle: {
+        name: 'Hervidor Eléctrico Milexus 1.8L',
+        description: 'Hervido rápido con capacidad de 1.8L. Apagado automático de seguridad. Cuerpo de acero inoxidable con diseño inalámbrico.'
+      },
+      vacuum: {
+        name: 'Aspiradora Milexus 2000W',
+        description: 'Motor potente de 2000W con filtro HEPA. Diseño sin bolsa con gran capacidad. Ideal para alfombras y pisos duros.'
+      },
+      fan: {
+        name: 'Ventilador de Pie Milexus 16"',
+        description: 'Ventilador oscilante con altura ajustable. 3 velocidades con temporizador. Operación silenciosa y eficiente en energía.'
+      },
+      iron: {
+        name: 'Plancha Eléctrica Milexus 2400W',
+        description: 'Plancha de vapor con suela de cerámica. Control de temperatura variable. Función anti-goteo y auto-limpieza.'
+      },
+      dispenser: {
+        name: 'Dispensador de Agua Milexus Frío/Caliente',
+        description: 'Dispensador de piso con función de agua fría y caliente. Seguro infantil en el grifo de agua caliente. Sistema de enfriamiento eficiente.'
+      }
     }
   },
   contact: {
@@ -182,7 +232,7 @@ export default {
       addressLabel: 'Dirección',
       address: '14119 SW 126th PATH, Miami FL 33186, EE.UU.',
       emailLabel: 'Correo',
-      email: 'info@kyexportllc.com',
+      email: 'kyexportllc@gmail.com',
       phoneLabel: 'Teléfono',
       phone: '+1 786 729 5474',
       phoneNote: 'Lun-Vie, 9am-6pm EST'

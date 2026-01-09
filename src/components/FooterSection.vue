@@ -97,7 +97,7 @@ const currentYear = computed(() => new Date().getFullYear())
 
 const contactInfo = {
   address: '14119 SW 126th PATH, Miami FL 33186, USA',
-  email: 'info@kyexportllc.com',
+  email: 'kyexportllc@gmail.com',
   phone: '+1 786 729 5474'
 }
 </script>

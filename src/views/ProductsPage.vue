@@ -74,7 +74,7 @@
             <div class="aspect-square bg-gray-200 overflow-hidden relative">
               <img
                 :src="product.image"
-                :alt="product.name"
+                :alt="getProductName(product)"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
               <div class="absolute top-4 right-4">
@@ -84,8 +84,8 @@
               </div>
             </div>
             <div class="p-6">
-              <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">{{ product.name }}</h3>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ product.description }}</p>
+              <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">{{ getProductName(product) }}</h3>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ getProductDescription(product) }}</p>
               <button
                 @click="requestQuote(product)"
                 class="w-full bg-primary-700 text-white py-3 rounded-lg hover:bg-primary-800 transition-colors font-semibold flex items-center justify-center"
@@ -178,11 +178,12 @@ const filteredProducts = computed(() => {
   // Filter by search query
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(p => 
-      p.name.toLowerCase().includes(query) || 
-      p.description.toLowerCase().includes(query) ||
-      p.category.toLowerCase().includes(query)
-    )
+    filtered = filtered.filter(p => {
+      const name = getProductName(p).toLowerCase()
+      const description = getProductDescription(p).toLowerCase()
+      const categoryLabel = getCategoryLabel(p.category).toLowerCase()
+      return name.includes(query) || description.includes(query) || categoryLabel.includes(query)
+    })
   }
 
   return filtered
@@ -224,10 +225,13 @@ const getCategoryLabel = (category) => {
   return t(map[category] || map['All'])
 }
 
+const getProductName = (product) => t(`${product.translationKey}.name`)
+const getProductDescription = (product) => t(`${product.translationKey}.description`)
+
 const requestQuote = (product) => {
   router.push({
     path: '/contact',
-    query: { product: product.name }
+    query: { product: getProductName(product) }
   })
 }
 </script>

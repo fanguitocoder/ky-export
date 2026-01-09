@@ -149,6 +149,56 @@ export default {
       title: "Can't Find What You Need?",
       subtitle: 'Contact us for custom product inquiries and bulk orders',
       button: 'Contact Us'
+    },
+    items: {
+      washingMachine: {
+        name: 'Milexus Front-Load Washing Machine',
+        description: 'Energy-efficient 8kg capacity washing machine with 14 wash programs. Smart inverter technology for quiet operation and long-lasting performance.'
+      },
+      airConditioner: {
+        name: 'Milexus Split Air Conditioner 18000 BTU',
+        description: 'Powerful cooling with energy-saving inverter technology. Built-in air purification and smart temperature control. Perfect for large rooms.'
+      },
+      smartTv: {
+        name: 'Milexus 55" 4K Smart TV',
+        description: 'Ultra HD 4K resolution with HDR10+ support. Built-in smart platform with streaming apps. Crystal-clear picture quality and immersive sound.'
+      },
+      refrigerator: {
+        name: 'Milexus Double Door Refrigerator',
+        description: '420L capacity with advanced cooling technology. Energy-efficient with frost-free operation. Spacious storage with adjustable shelves.'
+      },
+      microwave: {
+        name: 'Milexus Microwave Oven 30L',
+        description: 'Digital microwave with grill function. 30L capacity with auto-cook menus. Stainless steel interior for easy cleaning.'
+      },
+      gasCooker: {
+        name: 'Milexus Gas Cooker 4 Burner',
+        description: 'Professional-grade 4-burner gas cooker with oven. Heavy-duty cast iron grates. Multiple burner sizes for versatile cooking.'
+      },
+      blender: {
+        name: 'Milexus Blender 1000W',
+        description: 'High-performance blender with 1000W motor. 1.5L glass jar. Multiple speed settings for smoothies, soups, and more.'
+      },
+      kettle: {
+        name: 'Milexus Electric Kettle 1.8L',
+        description: 'Fast-boiling 1.8L capacity kettle. Auto shut-off safety feature. Stainless steel body with cordless design.'
+      },
+      vacuum: {
+        name: 'Milexus Vacuum Cleaner 2000W',
+        description: 'Powerful 2000W motor with HEPA filtration. Bagless design with large dust capacity. Ideal for carpets and hard floors.'
+      },
+      fan: {
+        name: 'Milexus Standing Fan 16"',
+        description: 'Oscillating stand fan with adjustable height. 3-speed settings with timer function. Quiet operation and energy efficient.'
+      },
+      iron: {
+        name: 'Milexus Electric Iron 2400W',
+        description: 'Steam iron with ceramic soleplate. Variable temperature control. Anti-drip and self-cleaning functions.'
+      },
+      dispenser: {
+        name: 'Milexus Water Dispenser Hot & Cold',
+        description: 'Floor-standing water dispenser with hot and cold function. Child safety lock on hot water tap. Energy-efficient cooling system.'
+      }
     }
   },
   contact: {
@@ -182,7 +232,7 @@ export default {
       addressLabel: 'Address',
       address: '14119 SW 126th PATH, Miami FL 33186, USA',
       emailLabel: 'Email',
-      email: 'info@kyexportllc.com',
+      email: 'kyexportllc@gmail.com',
       phoneLabel: 'Phone',
       phone: '+1 786 729 5474',
       phoneNote: 'Mon-Fri, 9am-6pm EST'

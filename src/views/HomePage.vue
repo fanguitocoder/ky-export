@@ -101,14 +101,14 @@
             <div class="aspect-square bg-gray-200 overflow-hidden">
               <img
                 :src="product.image"
-                :alt="product.name"
+                :alt="getProductName(product)"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
             </div>
             <div class="p-6">
               <div class="text-sm text-primary-600 font-semibold mb-2">{{ product.category }}</div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{{ product.name }}</h3>
-              <p class="text-gray-600 mb-4 line-clamp-2">{{ product.description }}</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{{ getProductName(product) }}</h3>
+              <p class="text-gray-600 mb-4 line-clamp-2">{{ getProductDescription(product) }}</p>
               <button
                 @click="contactAboutProduct(product)"
                 class="w-full bg-primary-700 text-white py-3 rounded-lg hover:bg-primary-800 transition-colors font-semibold"
@@ -203,17 +203,22 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { products } from '../data/products'
 
 const router = useRouter()
+const { t } = useI18n()
 const heroImage = `${import.meta.env.BASE_URL}images/hero-image.png`
 
 const featuredProducts = computed(() => products.filter(p => p.featured).slice(0, 6))
 
+const getProductName = (product) => t(`${product.translationKey}.name`)
+const getProductDescription = (product) => t(`${product.translationKey}.description`)
+
 const contactAboutProduct = (product) => {
   router.push({
     path: '/contact',
-    query: { product: product.name }
+    query: { product: getProductName(product) }
   })
 }
 </script>
