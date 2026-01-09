@@ -3,9 +3,9 @@
     <!-- Header -->
     <section class="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl md:text-6xl font-display font-bold mb-6">Contact Us</h1>
+        <h1 class="text-5xl md:text-6xl font-display font-bold mb-6">{{ $t('contact.hero.title') }}</h1>
         <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-          Let's Start Your Export Journey Together
+          {{ $t('contact.hero.subtitle') }}
         </p>
       </div>
     </section>
@@ -16,13 +16,13 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <!-- Contact Form -->
           <div class="bg-white rounded-xl shadow-lg p-8 md:p-10">
-            <h2 class="text-3xl font-display font-bold text-gray-900 mb-6">Send us a Message</h2>
+            <h2 class="text-3xl font-display font-bold text-gray-900 mb-6">{{ $t('contact.form.title') }}</h2>
             
             <form @submit.prevent="handleSubmit" class="space-y-6">
               <!-- Name -->
               <div>
                 <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Full Name <span class="text-red-500">*</span>
+                  {{ $t('contact.form.name') }} <span class="text-red-500">*</span>
                 </label>
                 <input
                   v-model="formData.name"
@@ -30,14 +30,14 @@
                   id="name"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  placeholder="John Doe"
+                  :placeholder="$t('contact.form.namePlaceholder')"
                 />
               </div>
 
               <!-- Email -->
               <div>
                 <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address <span class="text-red-500">*</span>
+                  {{ $t('contact.form.email') }} <span class="text-red-500">*</span>
                 </label>
                 <input
                   v-model="formData.email"
@@ -45,42 +45,42 @@
                   id="email"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  placeholder="john@example.com"
+                  :placeholder="$t('contact.form.emailPlaceholder')"
                 />
               </div>
 
               <!-- Phone -->
               <div>
                 <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Phone Number
+                  {{ $t('contact.form.phone') }}
                 </label>
                 <input
                   v-model="formData.phone"
                   type="tel"
                   id="phone"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  placeholder="+1 (555) 000-0000"
+                  :placeholder="$t('contact.form.phonePlaceholder')"
                 />
               </div>
 
               <!-- Company -->
               <div>
                 <label for="company" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Company Name
+                  {{ $t('contact.form.company') }}
                 </label>
                 <input
                   v-model="formData.company"
                   type="text"
                   id="company"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  placeholder="Your Company"
+                  :placeholder="$t('contact.form.companyPlaceholder')"
                 />
               </div>
 
               <!-- Subject -->
               <div>
                 <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Subject <span class="text-red-500">*</span>
+                  {{ $t('contact.form.subject') }} <span class="text-red-500">*</span>
                 </label>
                 <input
                   v-model="formData.subject"
@@ -88,14 +88,14 @@
                   id="subject"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                  :placeholder="productInterest ? `Inquiry about ${productInterest}` : 'How can we help you?'"
+                  :placeholder="productInterest ? t('contact.form.prepopulatedSubject', { product: productInterest }) : $t('contact.form.subjectPlaceholder')"
                 />
               </div>
 
               <!-- Message -->
               <div>
                 <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Message <span class="text-red-500">*</span>
+                  {{ $t('contact.form.message') }} <span class="text-red-500">*</span>
                 </label>
                 <textarea
                   v-model="formData.message"
@@ -103,7 +103,7 @@
                   required
                   rows="5"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
-                  placeholder="Tell us about your export needs..."
+                  :placeholder="$t('contact.form.messagePlaceholder')"
                 ></textarea>
               </div>
 
@@ -113,13 +113,13 @@
                 :disabled="isSubmitting"
                 class="w-full bg-primary-700 text-white py-4 rounded-lg hover:bg-primary-800 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
-                <span v-if="!isSubmitting">Send Message</span>
+                <span v-if="!isSubmitting">{{ $t('contact.form.submit') }}</span>
                 <span v-else class="flex items-center">
                   <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Sending...
+                  {{ $t('contact.form.sending') }}
                 </span>
               </button>
             </form>
@@ -136,8 +136,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                   <div>
-                    <h3 class="font-semibold text-green-900">Message Sent Successfully!</h3>
-                    <p class="text-sm text-green-700 mt-1">We'll get back to you within 24 hours.</p>
+                    <h3 class="font-semibold text-green-900">{{ $t('contact.form.successTitle') }}</h3>
+                    <p class="text-sm text-green-700 mt-1">{{ $t('contact.form.successMessage') }}</p>
                   </div>
                 </div>
               </div>
@@ -148,7 +148,7 @@
           <div class="space-y-8">
             <!-- Contact Details -->
             <div class="bg-white rounded-xl shadow-lg p-8">
-              <h2 class="text-2xl font-display font-bold text-gray-900 mb-6">Get in Touch</h2>
+              <h2 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ $t('contact.info.title') }}</h2>
               
               <div class="space-y-6">
                 <!-- Address -->
@@ -160,8 +160,8 @@
                     </svg>
                   </div>
                   <div class="ml-4">
-                    <h3 class="font-semibold text-gray-900 mb-1">Address</h3>
-                    <p class="text-gray-600">123 Trade Center Blvd<br>Miami, FL 33131, USA</p>
+                    <h3 class="font-semibold text-gray-900 mb-1">{{ $t('contact.info.addressLabel') }}</h3>
+                    <p class="text-gray-600">{{ $t('contact.info.address') }}</p>
                   </div>
                 </div>
 
@@ -173,10 +173,8 @@
                     </svg>
                   </div>
                   <div class="ml-4">
-                    <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:info@kyexport.com" class="text-primary-700 hover:text-primary-800">info@kyexport.com</a>
-                    <br>
-                    <a href="mailto:sales@kyexport.com" class="text-primary-700 hover:text-primary-800">sales@kyexport.com</a>
+                    <h3 class="font-semibold text-gray-900 mb-1">{{ $t('contact.info.emailLabel') }}</h3>
+                    <a :href="emailHref" class="text-primary-700 hover:text-primary-800">{{ contactEmail }}</a>
                   </div>
                 </div>
 
@@ -188,9 +186,9 @@
                     </svg>
                   </div>
                   <div class="ml-4">
-                    <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <a href="tel:+13055550123" class="text-primary-700 hover:text-primary-800">+1 (305) 555-0123</a>
-                    <p class="text-sm text-gray-500 mt-1">Mon-Fri, 9am-6pm EST</p>
+                    <h3 class="font-semibold text-gray-900 mb-1">{{ $t('contact.info.phoneLabel') }}</h3>
+                    <a :href="phoneHref" class="text-primary-700 hover:text-primary-800">{{ contactPhone }}</a>
+                    <p class="text-sm text-gray-500 mt-1">{{ $t('contact.info.phoneNote') }}</p>
                   </div>
                 </div>
               </div>
@@ -198,29 +196,29 @@
 
             <!-- Business Hours -->
             <div class="bg-gradient-to-br from-primary-700 to-primary-900 text-white rounded-xl shadow-lg p-8">
-              <h3 class="text-xl font-bold mb-4">Business Hours</h3>
+              <h3 class="text-xl font-bold mb-4">{{ $t('contact.businessHours.title') }}</h3>
               <div class="space-y-2 text-gray-200">
                 <div class="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span class="font-semibold">9:00 AM - 6:00 PM</span>
+                  <span>{{ $t('contact.businessHours.weekdays') }}</span>
+                  <span class="font-semibold">{{ $t('contact.businessHours.weekdaysHours') }}</span>
                 </div>
                 <div class="flex justify-between">
-                  <span>Saturday</span>
-                  <span class="font-semibold">10:00 AM - 2:00 PM</span>
+                  <span>{{ $t('contact.businessHours.saturday') }}</span>
+                  <span class="font-semibold">{{ $t('contact.businessHours.saturdayHours') }}</span>
                 </div>
                 <div class="flex justify-between">
-                  <span>Sunday</span>
-                  <span class="font-semibold">Closed</span>
+                  <span>{{ $t('contact.businessHours.sunday') }}</span>
+                  <span class="font-semibold">{{ $t('contact.businessHours.sundayHours') }}</span>
                 </div>
               </div>
               <p class="text-sm text-gray-300 mt-4">
-                * All times in EST (Eastern Standard Time)
+                {{ $t('contact.businessHours.note') }}
               </p>
             </div>
 
             <!-- Quick Links -->
             <div class="bg-white rounded-xl shadow-lg p-8">
-              <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h3>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">{{ $t('contact.quickActions.title') }}</h3>
               <div class="space-y-3">
                 <router-link
                   to="/products"
@@ -229,7 +227,7 @@
                   <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
-                  Browse Product Catalog
+                  {{ $t('contact.quickActions.browse') }}
                 </router-link>
                 <router-link
                   to="/about"
@@ -238,16 +236,16 @@
                   <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
-                  Learn About Us
+                  {{ $t('contact.quickActions.about') }}
                 </router-link>
                 <a
-                  href="tel:+13055550123"
+                  :href="phoneHref"
                   class="flex items-center text-primary-700 hover:text-primary-800 font-medium group"
                 >
                   <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
-                  Call Us Now
+                  {{ $t('contact.quickActions.call') }}
                 </a>
               </div>
             </div>
@@ -259,10 +257,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
+const { t } = useI18n()
 
 const formData = ref({
   name: '',
@@ -276,13 +276,17 @@ const formData = ref({
 const isSubmitting = ref(false)
 const showSuccess = ref(false)
 const productInterest = ref(null)
+const contactEmail = computed(() => t('contact.info.email'))
+const contactPhone = computed(() => t('contact.info.phone'))
+const emailHref = computed(() => `mailto:${contactEmail.value}`)
+const phoneHref = computed(() => `tel:${contactPhone.value.replace(/\s+/g, '')}`)
 
 // Prepopulate form if coming from product page
 onMounted(() => {
   if (route.query.product) {
     productInterest.value = route.query.product
-    formData.value.subject = `Inquiry about ${route.query.product}`
-    formData.value.message = `Hello,\n\nI am interested in learning more about ${route.query.product}. Please provide information about:\n\n- Pricing and minimum order quantities\n- Shipping options and delivery times\n- Product specifications\n\nThank you!`
+    formData.value.subject = t('contact.form.prepopulatedSubject', { product: route.query.product })
+    formData.value.message = t('contact.form.prepopulatedMessage', { product: route.query.product })
   }
 })
 

@@ -1,11 +1,13 @@
 // Milexus brand product catalog - Premium home appliances and electronics
+const imageBase = `${import.meta.env.BASE_URL}images/milexus-wm/`
+
 export const products = [
   {
     id: 1,
     name: 'Milexus Front-Load Washing Machine',
     category: 'Appliances',
     description: 'Energy-efficient 8kg capacity washing machine with 14 wash programs. Smart inverter technology for quiet operation and long-lasting performance.',
-    image: '/images/milexus-wm/washing-machine.jpg',
+    image: `${imageBase}washing-machine.jpg`,
     featured: true
   },
   {
@@ -13,7 +15,7 @@ export const products = [
     name: 'Milexus Split Air Conditioner 18000 BTU',
     category: 'Appliances',
     description: 'Powerful cooling with energy-saving inverter technology. Built-in air purification and smart temperature control. Perfect for large rooms.',
-    image: '/images/milexus-wm/air-cond.webp',
+    image: `${imageBase}air-cond.webp`,
     featured: true
   },
   {
@@ -21,7 +23,7 @@ export const products = [
     name: 'Milexus 55" 4K Smart TV',
     category: 'Electronics',
     description: 'Ultra HD 4K resolution with HDR10+ support. Built-in smart platform with streaming apps. Crystal-clear picture quality and immersive sound.',
-    image: '/images/milexus-wm/tv-set.png',
+    image: `${imageBase}tv-set.png`,
     featured: true
   },
   {
@@ -29,7 +31,7 @@ export const products = [
     name: 'Milexus Double Door Refrigerator',
     category: 'Appliances',
     description: '420L capacity with advanced cooling technology. Energy-efficient with frost-free operation. Spacious storage with adjustable shelves.',
-    image: '/images/milexus-wm/refrigerator.png',
+    image: `${imageBase}refrigerator.png`,
     featured: true
   },
   {
@@ -37,7 +39,7 @@ export const products = [
     name: 'Milexus Microwave Oven 30L',
     category: 'Kitchen Appliances',
     description: 'Digital microwave with grill function. 30L capacity with auto-cook menus. Stainless steel interior for easy cleaning.',
-    image: '/images/milexus-wm/microwave.png',
+    image: `${imageBase}microwave.png`,
     featured: true
   },
   {
@@ -45,7 +47,7 @@ export const products = [
     name: 'Milexus Gas Cooker 4 Burner',
     category: 'Kitchen Appliances',
     description: 'Professional-grade 4-burner gas cooker with oven. Heavy-duty cast iron grates. Multiple burner sizes for versatile cooking.',
-    image: '/images/milexus-wm/JMD-infrared-kitchen.png',
+    image: `${imageBase}JMD-infrared-kitchen.png`,
     featured: false
   },
   {
@@ -69,7 +71,7 @@ export const products = [
     name: 'Milexus Vacuum Cleaner 2000W',
     category: 'Home Care',
     description: 'Powerful 2000W motor with HEPA filtration. Bagless design with large dust capacity. Ideal for carpets and hard floors.',
-    image: '/images/milexus-wm/vacuum.png',
+    image: `${imageBase}vacuum.png`,
     featured: true
   },
   {
@@ -77,7 +79,7 @@ export const products = [
     name: 'Milexus Standing Fan 16"',
     category: 'Appliances',
     description: 'Oscillating stand fan with adjustable height. 3-speed settings with timer function. Quiet operation and energy efficient.',
-    image: '/images/milexus-wm/fan.png',
+    image: `${imageBase}fan.png`,
     featured: false
   },
   {

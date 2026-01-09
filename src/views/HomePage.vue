@@ -16,20 +16,20 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="animate-slide-up">
             <div class="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold">
-              🌍 Global Trade Excellence
+              {{ $t('home.hero.badge') }}
             </div>
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
-              Connecting <span class="text-accent-400">Quality</span> to the World
+              {{ $t('home.hero.title') }} <span class="text-accent-400">{{ $t('home.hero.titleHighlight') }}</span> {{ $t('home.hero.titleEnd') }}
             </h1>
             <p class="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-              Your trusted partner in international export. Premium Milexus products delivered globally with excellence.
+              {{ $t('home.hero.subtitle') }}
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <router-link
                 to="/products"
                 class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-900 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
               >
-                Explore Products
+                {{ $t('home.hero.exploreProducts') }}
                 <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
@@ -38,7 +38,7 @@
                 to="/contact"
                 class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-primary-900 transition-all duration-200"
               >
-                Get Quote
+                {{ $t('home.hero.getQuote') }}
               </router-link>
             </div>
             
@@ -46,15 +46,15 @@
             <div class="grid grid-cols-3 gap-8 mt-12">
               <div>
                 <div class="text-3xl md:text-4xl font-bold text-accent-400">50+</div>
-                <div class="text-sm text-gray-300 mt-1">Countries</div>
+                <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.countries') }}</div>
               </div>
               <div>
                 <div class="text-3xl md:text-4xl font-bold text-accent-400">10K+</div>
-                <div class="text-sm text-gray-300 mt-1">Shipments</div>
+                <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.shipments') }}</div>
               </div>
               <div>
                 <div class="text-3xl md:text-4xl font-bold text-accent-400">99%</div>
-                <div class="text-sm text-gray-300 mt-1">Satisfaction</div>
+                <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.satisfaction') }}</div>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@
           <div class="hidden md:block animate-fade-in">
             <div class="relative">
               <div class="aspect-square bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden">
-                <img src="/images/hero-image.png" alt="KY EXPORT - Global Trade" class="w-full h-full object-cover" />
+                <img :src="heroImage" alt="KY EXPORT - Global Trade" class="w-full h-full object-cover" />
               </div>
               <!-- Decorative elements -->
               <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent-500 rounded-full blur-3xl opacity-50"></div>
@@ -85,10 +85,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
-            Featured Products
+            {{ $t('home.featuredProducts.title') }}
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our premium selection of Milexus products, trusted by businesses worldwide
+            {{ $t('home.featuredProducts.subtitle') }}
           </p>
         </div>
 
@@ -113,7 +113,7 @@
                 @click="contactAboutProduct(product)"
                 class="w-full bg-primary-700 text-white py-3 rounded-lg hover:bg-primary-800 transition-colors font-semibold"
               >
-                Request Quote
+                {{ $t('home.featuredProducts.requestQuote') }}
               </button>
             </div>
           </div>
@@ -124,7 +124,7 @@
             to="/products"
             class="inline-flex items-center px-8 py-4 bg-primary-700 text-white rounded-lg font-semibold hover:bg-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            View All Products
+            {{ $t('home.featuredProducts.viewAll') }}
             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
@@ -138,9 +138,9 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
-            Why Choose KY EXPORT?
+            {{ $t('home.whyChoose.title') }}
           </h2>
-          <p class="text-xl text-gray-600">Excellence in every shipment</p>
+          <p class="text-xl text-gray-600">{{ $t('home.whyChoose.subtitle') }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -150,8 +150,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Quality Assured</h3>
-            <p class="text-gray-600">Only the finest Milexus products, rigorously tested and certified for international standards</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $t('home.whyChoose.quality.title') }}</h3>
+            <p class="text-gray-600">{{ $t('home.whyChoose.quality.description') }}</p>
           </div>
 
           <div class="text-center p-8 rounded-xl bg-gradient-to-br from-accent-50 to-white hover:shadow-xl transition-shadow">
@@ -160,8 +160,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Fast Delivery</h3>
-            <p class="text-gray-600">Efficient logistics and shipping to get your products where they need to be, when they need to be there</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $t('home.whyChoose.delivery.title') }}</h3>
+            <p class="text-gray-600">{{ $t('home.whyChoose.delivery.description') }}</p>
           </div>
 
           <div class="text-center p-8 rounded-xl bg-gradient-to-br from-primary-50 to-white hover:shadow-xl transition-shadow">
@@ -170,8 +170,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Global Reach</h3>
-            <p class="text-gray-600">Serving 50+ countries with expertise in international trade regulations and customs</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $t('home.whyChoose.reach.title') }}</h3>
+            <p class="text-gray-600">{{ $t('home.whyChoose.reach.description') }}</p>
           </div>
         </div>
       </div>
@@ -181,16 +181,16 @@
     <section class="py-20 bg-gradient-to-r from-primary-700 to-primary-900 text-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
-          Ready to Start Exporting?
+          {{ $t('home.cta.title') }}
         </h2>
         <p class="text-xl text-gray-200 mb-8">
-          Contact us today for a free consultation and quote
+          {{ $t('home.cta.subtitle') }}
         </p>
         <router-link
           to="/contact"
           class="inline-flex items-center px-8 py-4 bg-white text-primary-900 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
         >
-          Get in Touch
+          {{ $t('home.cta.button') }}
           <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
@@ -206,6 +206,7 @@ import { useRouter } from 'vue-router'
 import { products } from '../data/products'
 
 const router = useRouter()
+const heroImage = `${import.meta.env.BASE_URL}images/hero-image.png`
 
 const featuredProducts = computed(() => products.filter(p => p.featured).slice(0, 6))
 

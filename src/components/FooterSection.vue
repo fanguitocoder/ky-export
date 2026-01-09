@@ -14,8 +14,7 @@
             </div>
           </div>
           <p class="text-gray-300 mb-4 max-w-md">
-            Your trusted partner in international trade. We connect quality products with global markets, 
-            specializing in Milexus brand distribution across borders.
+            {{ $t('footer.tagline') }}
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-300 hover:text-white transition-colors">
@@ -38,26 +37,26 @@
 
         <!-- Quick Links -->
         <div>
-          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <h3 class="text-lg font-semibold mb-4">{{ $t('footer.quickLinks') }}</h3>
           <ul class="space-y-2">
             <li>
-              <router-link to="/" class="text-gray-300 hover:text-white transition-colors">Home</router-link>
+              <router-link to="/" class="text-gray-300 hover:text-white transition-colors">{{ $t('nav.home') }}</router-link>
             </li>
             <li>
-              <router-link to="/about" class="text-gray-300 hover:text-white transition-colors">About Us</router-link>
+              <router-link to="/about" class="text-gray-300 hover:text-white transition-colors">{{ $t('nav.about') }}</router-link>
             </li>
             <li>
-              <router-link to="/products" class="text-gray-300 hover:text-white transition-colors">Products</router-link>
+              <router-link to="/products" class="text-gray-300 hover:text-white transition-colors">{{ $t('nav.products') }}</router-link>
             </li>
             <li>
-              <router-link to="/contact" class="text-gray-300 hover:text-white transition-colors">Contact</router-link>
+              <router-link to="/contact" class="text-gray-300 hover:text-white transition-colors">{{ $t('nav.contact') }}</router-link>
             </li>
           </ul>
         </div>
 
         <!-- Contact Info -->
         <div>
-          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <h3 class="text-lg font-semibold mb-4">{{ $t('footer.contactInfo') }}</h3>
           <ul class="space-y-3 text-gray-300">
             <li class="flex items-start">
               <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,8 +96,8 @@ import { computed } from 'vue'
 const currentYear = computed(() => new Date().getFullYear())
 
 const contactInfo = {
-  address: '123 Trade Center Blvd, Miami, FL 33131, USA',
-  email: 'info@kyexport.com',
-  phone: '+1 (305) 555-0123'
+  address: '14119 SW 126th PATH, Miami FL 33186, USA',
+  email: 'info@kyexportllc.com',
+  phone: '+1 786 729 5474'
 }
 </script>

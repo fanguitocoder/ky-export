@@ -4,7 +4,7 @@
       <div class="flex justify-between items-center h-20">
         <!-- Logo -->
         <router-link to="/" class="flex items-center">
-          <img src="/images/ky-export-logo.webp" alt="KY EXPORT" class="h-16 w-auto" />
+          <img :src="logoSrc" alt="KY EXPORT" class="h-16 w-auto" />
         </router-link>
 
         <!-- Desktop Navigation -->
@@ -16,14 +16,14 @@
             class="text-gray-700 hover:text-primary-700 font-medium transition-colors duration-200 relative group"
             active-class="text-primary-700"
           >
-            {{ link.name }}
+            {{ $t(link.nameKey) }}
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-700 transition-all duration-200 group-hover:w-full"></span>
           </router-link>
           <router-link
             to="/contact"
             class="bg-primary-700 text-white px-6 py-2.5 rounded-lg hover:bg-primary-800 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           >
-            Get in Touch
+            {{ $t('nav.getInTouch') }}
           </router-link>
         </div>
 
@@ -71,14 +71,14 @@
             class="block px-4 py-3 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-700 font-medium transition-colors"
             active-class="bg-primary-50 text-primary-700"
           >
-            {{ link.name }}
+            {{ $t(link.nameKey) }}
           </router-link>
           <router-link
             to="/contact"
             @click="mobileMenuOpen = false"
             class="block text-center bg-primary-700 text-white px-4 py-3 rounded-lg hover:bg-primary-800 transition-colors"
           >
-            Get in Touch
+            {{ $t('nav.getInTouch') }}
           </router-link>
         </div>
       </div>
@@ -88,14 +88,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const mobileMenuOpen = ref(false)
+const logoSrc = computed(() => `${import.meta.env.BASE_URL}images/ky-export-logo.webp`)
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Products', path: '/products' },
-  { name: 'Contact', path: '/contact' }
+  { nameKey: 'nav.home', path: '/' },
+  { nameKey: 'nav.about', path: '/about' },
+  { nameKey: 'nav.products', path: '/products' },
+  { nameKey: 'nav.contact', path: '/contact' }
 ]
 </script>
