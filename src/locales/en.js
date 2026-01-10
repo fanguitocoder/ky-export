@@ -211,7 +211,7 @@ export default {
       name: 'Full Name',
       namePlaceholder: 'John Doe',
       email: 'Email Address',
-      emailPlaceholder: 'john@example.com',
+      emailPlaceholder: 'your email address',
       phone: 'Phone Number',
       phonePlaceholder: '+1 (555) 000-0000',
       company: 'Company Name',
@@ -230,7 +230,6 @@ export default {
       addressLabel: 'Address',
       address: '14119 SW 126th PATH, Miami FL 33186, USA',
       emailLabel: 'Email',
-      email: 'kyexportllc@gmail.com',
       phoneLabel: 'Phone',
       phone: '+1 786 729 5474',
       phoneNote: 'Mon-Fri, 9am-6pm EST'

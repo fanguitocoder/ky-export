@@ -211,7 +211,7 @@ export default {
       name: 'Nombre Completo',
       namePlaceholder: 'Juan Pérez',
       email: 'Correo Electrónico',
-      emailPlaceholder: 'juan@ejemplo.com',
+      emailPlaceholder: 'su correo electrónico',
       phone: 'Número de Teléfono',
       phonePlaceholder: '+1 (555) 000-0000',
       company: 'Nombre de la Empresa',
@@ -230,7 +230,6 @@ export default {
       addressLabel: 'Dirección',
       address: '14119 SW 126th PATH, Miami FL 33186, EE.UU.',
       emailLabel: 'Correo',
-      email: 'kyexportllc@gmail.com',
       phoneLabel: 'Teléfono',
       phone: '+1 786 729 5474',
       phoneNote: 'Lun-Vie, 9am-6pm EST'

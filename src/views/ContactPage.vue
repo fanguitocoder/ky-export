@@ -180,7 +180,7 @@
                   </div>
                   <div class="ml-4">
                     <h3 class="font-semibold text-gray-900 mb-1">{{ $t('contact.info.emailLabel') }}</h3>
-                    <a :href="emailHref" class="text-primary-700 hover:text-primary-800">{{ contactEmail }}</a>
+                    <a :href="emailHref" class="text-primary-700 hover:text-primary-800">{{ CONTACT_EMAIL }}</a>
                   </div>
                 </div>
 
@@ -282,9 +282,9 @@ const formData = ref({
 const isSubmitting = ref(false)
 const showSuccess = ref(false)
 const productInterest = ref(null)
-const contactEmail = computed(() => t('contact.info.email'))
+const CONTACT_EMAIL = 'kyexportllc@gmail.com'
 const contactPhone = computed(() => t('contact.info.phone'))
-const emailHref = computed(() => `mailto:${contactEmail.value}`)
+const emailHref = computed(() => `mailto:${CONTACT_EMAIL}`)
 const whatsappHref = computed(() => `https://wa.me/${contactPhone.value.replace(/\D/g, '')}`)
 
 const applyProductPrefill = () => {
