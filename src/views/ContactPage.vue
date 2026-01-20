@@ -305,10 +305,27 @@ onMounted(() => {
 const handleSubmit = async () => {
   isSubmitting.value = true
   
-  // Simulate API call (replace with actual form submission)
-  await new Promise(resolve => setTimeout(resolve, 1500))
+  // Format WhatsApp message with all form data
+  const whatsappMessage = `*New Contact Form Submission*
+
+*Name:* ${formData.value.name}
+*Email:* ${formData.value.email}
+*Phone:* ${formData.value.phone || 'Not provided'}
+*Company:* ${formData.value.company || 'Not provided'}
+*Subject:* ${formData.value.subject}
+
+*Message:*
+${formData.value.message}`
+
+  // Open WhatsApp with pre-filled message
+  const phoneNumber = contactPhone.value.replace(/\D/g, '')
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`
   
-  console.log('Form submitted:', formData.value)
+  // Small delay for better UX
+  await new Promise(resolve => setTimeout(resolve, 500))
+  
+  // Open WhatsApp in new tab
+  window.open(whatsappUrl, '_blank')
   
   // Show success message
   showSuccess.value = true
