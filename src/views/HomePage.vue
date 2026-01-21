@@ -45,11 +45,11 @@
             <!-- Stats -->
             <div class="grid grid-cols-3 gap-8 mt-12">
               <div>
-                <div class="text-3xl md:text-4xl font-bold text-accent-400">50+</div>
+                <div class="text-3xl md:text-4xl font-bold text-accent-400">10+</div>
                 <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.countries') }}</div>
               </div>
               <div>
-                <div class="text-3xl md:text-4xl font-bold text-accent-400">10K+</div>
+                <div class="text-3xl md:text-4xl font-bold text-accent-400">600+</div>
                 <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.shipments') }}</div>
               </div>
               <div>
