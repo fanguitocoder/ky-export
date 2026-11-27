@@ -20,8 +20,8 @@ export default {
   home: {
     hero: {
       badge: 'International Trade & Export',
-      title: 'Global reach.',
-      titleHighlight: 'Quality without borders.',
+      title: 'Quality products.',
+      titleHighlight: 'Global opportunities.',
       titleEnd: '',
       subtitle: 'Discover Milexus appliances and electronics for your business, with export support from Miami to international markets.',
       exploreProducts: 'Explore Products',
@@ -37,7 +37,7 @@ export default {
       viewAll: 'View All Products'
     },
     whyChoose: {
-      title: 'Why Choose KY EXPORT?',
+      title: 'Your partner beyond borders.',
       subtitle: 'Excellence in every shipment',
       quality: {
         title: 'Quality Assured',
@@ -49,11 +49,11 @@ export default {
       },
       reach: {
         title: 'Global Reach',
-        description: 'Serving 50+ countries with expertise in international trade regulations and customs'
+        description: 'We help businesses connect with international markets through product sourcing and export support.'
       }
     },
     cta: {
-      title: 'Ready to Start Exporting?',
+      title: 'Let\'s build something together.',
       subtitle: 'Contact us today for a free consultation and quote',
       button: 'Get in Touch'
     }
