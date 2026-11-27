@@ -1,24 +1,25 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Header -->
-    <section class="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
+    <section class="bg-primary-900 text-white py-20">
+      <div class="site-container">
+        <div class="max-w-4xl">
           <h1 class="text-5xl md:text-6xl font-display font-bold mb-6">{{ $t('products.hero.title') }}</h1>
-          <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+          <p class="text-xl md:text-2xl text-gray-200 max-w-3xl">
             {{ $t('products.hero.subtitle') }}
           </p>
         </div>
 
         <!-- Search and Filter -->
-        <div class="mt-12 max-w-4xl mx-auto">
+        <div class="mt-10 max-w-4xl">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Search -->
             <div class="md:col-span-2">
               <div class="relative">
                 <input
                   v-model="searchQuery"
-                  type="text"
+                  type="search"
+                  :aria-label="$t('products.search')"
                   :placeholder="$t('products.search')"
                   class="w-full px-6 py-4 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-400"
                 />
@@ -32,6 +33,7 @@
             <div>
               <select
                 v-model="selectedCategory"
+                :aria-label="$t('products.categories.title')"
                 class="w-full px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent-400"
               >
                 <option v-for="category in categories" :key="category" :value="category">
@@ -46,7 +48,7 @@
 
     <!-- Products Grid -->
     <section class="py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="site-container">
         <!-- Results Info -->
         <div class="mb-8 flex justify-between items-center">
           <p class="text-gray-600">
@@ -65,38 +67,8 @@
         </div>
 
         <!-- Products -->
-        <div v-if="filteredProducts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          <div
-            v-for="product in filteredProducts"
-            :key="product.id"
-            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
-          >
-            <div class="aspect-square bg-gray-200 overflow-hidden relative">
-              <img
-                :src="product.image"
-                :alt="getProductName(product)"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 bg-primary-700 text-white text-xs font-semibold rounded-full">
-                  {{ getCategoryLabel(product.category) }}
-                </span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">{{ getProductName(product) }}</h3>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ getProductDescription(product) }}</p>
-              <button
-                @click="requestQuote(product)"
-                class="w-full bg-primary-700 text-white py-3 rounded-lg hover:bg-primary-800 transition-colors font-semibold flex items-center justify-center"
-              >
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                {{ $t('products.requestQuote') }}
-              </button>
-            </div>
-          </div>
+        <div v-if="filteredProducts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 xl:gap-7">
+          <ProductCard v-for="product in filteredProducts" :key="product.id" :product="product" />
         </div>
 
         <!-- No Results -->
@@ -118,7 +90,7 @@
 
     <!-- Categories Overview -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="site-container">
         <h2 class="text-3xl font-display font-bold text-gray-900 text-center mb-12">{{ $t('products.categories.title') }}</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <button
@@ -136,7 +108,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-gradient-to-r from-primary-700 to-primary-900 text-white">
+    <section class="py-20 bg-primary-900 text-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl font-display font-bold mb-6">{{ $t('products.cta.title') }}</h2>
         <p class="text-xl text-gray-200 mb-8">
@@ -158,11 +130,10 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import ProductCard from '../components/ProductCard.vue'
 import { useI18n } from 'vue-i18n'
 import { products, categories } from '../data/products'
 
-const router = useRouter()
 const { t } = useI18n()
 const searchQuery = ref('')
 const selectedCategory = ref('All')
@@ -228,10 +199,4 @@ const getCategoryLabel = (category) => {
 const getProductName = (product) => t(`${product.translationKey}.name`)
 const getProductDescription = (product) => t(`${product.translationKey}.description`)
 
-const requestQuote = (product) => {
-  router.push({
-    path: '/contact',
-    query: { product: getProductName(product) }
-  })
-}
 </script>
