@@ -1,5 +1,6 @@
 export default {
   nav: {
+    menu: 'Toggle navigation menu',
     home: 'Home',
     about: 'About',
     products: 'Products',
