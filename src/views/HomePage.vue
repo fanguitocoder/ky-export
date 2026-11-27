@@ -9,7 +9,7 @@
             <span class="h-px w-8 bg-[#d5b16b]"></span>
             {{ $t('home.hero.badge') }}
           </div>
-          <h1 class="font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 class="font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-6xl 2xl:text-7xl">
             {{ $t('home.hero.title') }}
             <span class="block text-[#d5b16b]">{{ $t('home.hero.titleHighlight') }}</span>
           </h1>
@@ -23,15 +23,11 @@
             </router-link>
           </div>
         </div>
-        <div class="relative overflow-hidden rounded-xl border border-white/10 bg-[#142c45] p-3 sm:p-5">
-          <div class="grid grid-cols-2 gap-3 sm:gap-4">
-            <div v-for="(product, index) in featuredProducts.slice(0, 4)" :key="product.id" class="overflow-hidden rounded-md bg-white">
-              <img :src="product.image" :alt="getProductName(product)" :loading="index === 0 ? 'eager' : 'lazy'" class="aspect-[4/3] w-full object-contain p-3 sm:p-5" />
-            </div>
-          </div>
-          <div class="mt-4 flex items-center justify-between gap-3 px-1 text-sm text-slate-300">
-            <span>Milexus</span>
-            <router-link to="/products" class="font-medium text-[#d5b16b] hover:underline">{{ $t('home.featuredProducts.viewAll') }} <span aria-hidden="true">↗</span></router-link>
+        <div class="relative min-w-0">
+          <img :src="tradeArtwork" alt="" width="1000" height="660" fetchpriority="high" class="w-full rounded-2xl border border-white/10" />
+          <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 rounded-lg border border-white/10 bg-primary-900/90 px-4 py-3 sm:bottom-8 sm:left-8 sm:right-8">
+            <span class="text-xs font-semibold uppercase tracking-widest text-accent-500">KY EXPORT LLC</span>
+            <span class="text-xs text-slate-300">{{ $t('home.whyChoose.reach.title') }}</span>
           </div>
         </div>
       </div>
@@ -57,7 +53,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 xl:gap-7 mb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-5 xl:gap-7 mb-12">
           <ProductCard v-for="product in featuredProducts" :key="product.id" :product="product" />
         </div>
 
@@ -145,11 +141,9 @@
 <script setup>
 import { computed } from 'vue'
 import ProductCard from '../components/ProductCard.vue'
-import { useI18n } from 'vue-i18n'
 import { products } from '../data/products'
 
-const { t } = useI18n()
 const featuredProducts = computed(() => products.filter(p => p.featured).slice(0, 6))
 
-const getProductName = (product) => t(`${product.translationKey}.name`)
+const tradeArtwork = `${import.meta.env.BASE_URL}images/trade-network.svg`
 </script>
