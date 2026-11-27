@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" fill="none">
+<defs><linearGradient id="sea" x2="1" y2="1"><stop stop-color="#152f47"/><stop offset="1" stop-color="#0b1929"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" stroke="#a8bfd1" stroke-opacity=".09"/></pattern><radialGradient id="glow"><stop stop-color="#d5b16b" stop-opacity=".24"/><stop offset="1" stop-color="#d5b16b" stop-opacity="0"/></radialGradient></defs>
+<rect width="1000" height="660" rx="20" fill="url(#sea)"/><rect width="1000" height="660" fill="url(#grid)"/>
+<circle cx="510" cy="330" r="300" fill="url(#glow)"/>
+<g transform="translate(510 330)" stroke="#92a9bd" stroke-opacity=".32" stroke-width="1.5"><circle r="253"/><ellipse rx="180" ry="253"/><ellipse rx="85" ry="253"/><ellipse rx="253" ry="95"/><ellipse rx="253" ry="180"/><path d="M-253 0H253M0-253V253"/></g>
+<g stroke="#d5b16b" stroke-width="2" stroke-dasharray="6 8" opacity=".8"><path d="M330 268Q500 25 700 240"/><path d="M330 268Q570 190 730 415"/><path d="M330 268Q230 440 475 535"/><path d="M330 268Q120 155 200 95"/></g>
+<g fill="#d5b16b"><circle cx="330" cy="268" r="7"/><circle cx="700" cy="240" r="5"/><circle cx="730" cy="415" r="5"/><circle cx="475" cy="535" r="5"/><circle cx="200" cy="95" r="5"/></g>
+<circle cx="330" cy="268" r="18" stroke="#d5b16b" stroke-opacity=".5"/><circle cx="330" cy="268" r="30" stroke="#d5b16b" stroke-opacity=".2"/>
+<g transform="translate(355 283)"><rect width="110" height="35" rx="5" fill="#0b1929" stroke="#d5b16b" stroke-opacity=".5"/><text x="55" y="22" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" letter-spacing="3" fill="#f0d8a4">MIAMI</text></g>
+<path d="M45 605h75m-75-10v20m75-20v20M955 55h-75m75-10v20m-75-20v20" stroke="#d5b16b" stroke-opacity=".5"/>
+</svg>
