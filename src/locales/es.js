@@ -1,5 +1,6 @@
 export default {
   nav: {
+    menu: 'Abrir o cerrar menú de navegación',
     home: 'Inicio',
     about: 'Nosotros',
     products: 'Productos',
@@ -18,13 +19,13 @@ export default {
   },
   home: {
     hero: {
-      badge: '🌍 Excelencia en Comercio Global',
-      title: 'Conectando',
-      titleHighlight: 'Calidad',
-      titleEnd: 'al Mundo',
-      subtitle: 'Su socio de confianza en exportación internacional. Productos Milexus premium entregados globalmente con excelencia.',
-      exploreProducts: 'Explorar Productos',
-      getQuote: 'Solicitar Cotización',
+      badge: 'Comercio y exportación internacional',
+      title: 'Alcance global.',
+      titleHighlight: 'Calidad sin fronteras.',
+      titleEnd: '',
+      subtitle: 'Descubra electrodomésticos y equipos electrónicos Milexus para su negocio, con apoyo de exportación desde Miami hacia mercados internacionales.',
+      exploreProducts: 'Explorar productos',
+      getQuote: 'Solicitar cotización',
       countries: 'Países',
       shipments: 'Envíos',
       satisfaction: 'Satisfacción'

@@ -1,82 +1,47 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white overflow-hidden">
-      <div class="absolute inset-0 bg-black/20"></div>
-      <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-transparent"></div>
-        <!-- Animated background pattern -->
-        <div class="absolute inset-0 opacity-10">
-          <div class="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl animate-float"></div>
-          <div class="absolute bottom-20 right-20 w-96 h-96 bg-accent-400 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
+    <section class="relative isolate overflow-hidden bg-[#0b1929] text-white">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#142c45] via-[#0b1929] to-[#101f31]"></div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 lg:min-h-[640px] lg:grid-cols-2 lg:gap-16 lg:py-24">
+        <div>
+          <div class="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#d5b16b]">
+            <span class="h-px w-8 bg-[#d5b16b]"></span>
+            {{ $t('home.hero.badge') }}
+          </div>
+          <h1 class="font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+            {{ $t('home.hero.title') }}
+            <span class="block text-[#d5b16b]">{{ $t('home.hero.titleHighlight') }}</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">{{ $t('home.hero.subtitle') }}</p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <router-link to="/products" class="inline-flex min-h-[54px] items-center justify-center gap-4 rounded-md bg-[#d5b16b] px-7 py-3 font-semibold text-[#0b1929] transition-colors hover:bg-[#e8c88a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              {{ $t('home.hero.exploreProducts') }} <span aria-hidden="true">↗</span>
+            </router-link>
+            <router-link to="/contact" class="inline-flex min-h-[54px] items-center justify-center rounded-md border border-white/40 px-7 py-3 font-semibold transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              {{ $t('home.hero.getQuote') }}
+            </router-link>
+          </div>
         </div>
-      </div>
-      
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="animate-slide-up">
-            <div class="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold">
-              {{ $t('home.hero.badge') }}
-            </div>
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
-              {{ $t('home.hero.title') }} <span class="text-accent-400">{{ $t('home.hero.titleHighlight') }}</span> {{ $t('home.hero.titleEnd') }}
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-              {{ $t('home.hero.subtitle') }}
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <router-link
-                to="/products"
-                class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-900 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-              >
-                {{ $t('home.hero.exploreProducts') }}
-                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </router-link>
-              <router-link
-                to="/contact"
-                class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-primary-900 transition-all duration-200"
-              >
-                {{ $t('home.hero.getQuote') }}
-              </router-link>
-            </div>
-            
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-8 mt-12">
-              <div>
-                <div class="text-3xl md:text-4xl font-bold text-accent-400">10+</div>
-                <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.countries') }}</div>
-              </div>
-              <div>
-                <div class="text-3xl md:text-4xl font-bold text-accent-400">600+</div>
-                <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.shipments') }}</div>
-              </div>
-              <div>
-                <div class="text-3xl md:text-4xl font-bold text-accent-400">99%</div>
-                <div class="text-sm text-gray-300 mt-1">{{ $t('home.hero.satisfaction') }}</div>
-              </div>
+        <div class="relative overflow-hidden rounded-xl border border-white/10 bg-[#142c45] p-3 sm:p-5">
+          <div class="grid grid-cols-2 gap-3 sm:gap-4">
+            <div v-for="(product, index) in featuredProducts.slice(0, 4)" :key="product.id" class="overflow-hidden rounded-md bg-white">
+              <img :src="product.image" :alt="getProductName(product)" :loading="index === 0 ? 'eager' : 'lazy'" class="aspect-[4/3] w-full object-contain p-3 sm:p-5" />
             </div>
           </div>
-          
-          <div class="hidden md:block animate-fade-in">
-            <div class="relative">
-              <div class="aspect-square bg-white/10 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden">
-                <img :src="heroImage" alt="KY EXPORT - Global Trade" class="w-full h-full object-cover" />
-              </div>
-              <!-- Decorative elements -->
-              <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent-500 rounded-full blur-3xl opacity-50"></div>
-              <div class="absolute -top-6 -left-6 w-32 h-32 bg-primary-400 rounded-full blur-3xl opacity-50"></div>
-            </div>
+          <div class="mt-4 flex items-center justify-between gap-3 px-1 text-sm text-slate-300">
+            <span>Milexus</span>
+            <router-link to="/products" class="font-medium text-[#d5b16b] hover:underline">{{ $t('home.featuredProducts.viewAll') }} <span aria-hidden="true">↗</span></router-link>
           </div>
         </div>
       </div>
-      
-      <!-- Wave divider -->
-      <div class="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-          <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
-        </svg>
+      <div class="border-t border-white/15 bg-white/[0.03]">
+        <div class="mx-auto grid max-w-7xl gap-5 px-5 py-7 sm:grid-cols-3 sm:px-8">
+          <div v-for="item in ['quality', 'delivery', 'reach']" :key="item" class="flex items-center gap-3 text-sm font-medium text-slate-200 sm:justify-center">
+            <span aria-hidden="true" class="h-2 w-2 shrink-0 rounded-full bg-[#d5b16b]"></span>
+            {{ $t('home.whyChoose.' + item + '.title') }}
+          </div>
+        </div>
       </div>
     </section>
 
@@ -208,8 +173,6 @@ import { products } from '../data/products'
 
 const router = useRouter()
 const { t } = useI18n()
-const heroImage = `${import.meta.env.BASE_URL}images/hero-image.png`
-
 const featuredProducts = computed(() => products.filter(p => p.featured).slice(0, 6))
 
 const getProductName = (product) => t(`${product.translationKey}.name`)

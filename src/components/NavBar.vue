@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+  <nav class="bg-white border-b border-slate-200 fixed w-full top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <!-- Logo -->
@@ -13,7 +13,7 @@
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="text-gray-700 hover:text-primary-700 font-medium transition-colors duration-200 relative group"
+            class="text-slate-700 hover:text-[#142c45] font-medium transition-colors duration-200 relative group"
             active-class="text-primary-700"
           >
             {{ $t(link.nameKey) }}
@@ -21,7 +21,7 @@
           </router-link>
           <router-link
             to="/contact"
-            class="bg-primary-700 text-white px-6 py-2.5 rounded-lg hover:bg-primary-800 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            class="bg-[#142c45] text-white px-6 py-3 rounded-md hover:bg-[#0b1929] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#142c45]"
           >
             {{ $t('nav.getInTouch') }}
           </router-link>
@@ -30,7 +30,9 @@
         <!-- Mobile Menu Button -->
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden text-gray-700 hover:text-primary-700 focus:outline-none"
+          :aria-expanded="mobileMenuOpen"
+          :aria-label="$t('nav.menu')"
+          class="md:hidden text-gray-700 hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -76,7 +78,7 @@
           <router-link
             to="/contact"
             @click="mobileMenuOpen = false"
-            class="block text-center bg-primary-700 text-white px-4 py-3 rounded-lg hover:bg-primary-800 transition-colors"
+            class="block text-center bg-[#142c45] text-white px-4 py-3 rounded-md hover:bg-[#0b1929] transition-colors"
           >
             {{ $t('nav.getInTouch') }}
           </router-link>
