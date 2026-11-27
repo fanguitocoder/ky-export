@@ -20,8 +20,8 @@ export default {
   home: {
     hero: {
       badge: 'Comercio y exportación internacional',
-      title: 'Alcance global.',
-      titleHighlight: 'Calidad sin fronteras.',
+      title: 'Productos de calidad.',
+      titleHighlight: 'Oportunidades globales.',
       titleEnd: '',
       subtitle: 'Descubra electrodomésticos y equipos electrónicos Milexus para su negocio, con apoyo de exportación desde Miami hacia mercados internacionales.',
       exploreProducts: 'Explorar productos',
@@ -37,7 +37,7 @@ export default {
       viewAll: 'Ver Todos los Productos'
     },
     whyChoose: {
-      title: '¿Por Qué Elegir KY EXPORT?',
+      title: 'Su socio más allá de las fronteras.',
       subtitle: 'Excelencia en cada envío',
       quality: {
         title: 'Calidad Asegurada',
@@ -49,11 +49,11 @@ export default {
       },
       reach: {
         title: 'Alcance Global',
-        description: 'Sirviendo a más de 50 países con experiencia en regulaciones comerciales internacionales y aduanas'
+        description: 'Ayudamos a las empresas a conectar con mercados internacionales mediante el suministro de productos y el apoyo a la exportación.'
       }
     },
     cta: {
-      title: '¿Listo para Comenzar a Exportar?',
+      title: 'Construyamos algo juntos.',
       subtitle: 'Contáctenos hoy para una consulta y cotización gratuita',
       button: 'Contáctenos'
     }

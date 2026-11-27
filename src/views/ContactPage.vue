@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Header -->
-    <section class="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="bg-primary-900 text-white py-20">
+      <div class="site-container text-center">
         <h1 class="text-5xl md:text-6xl font-display font-bold mb-6">{{ $t('contact.hero.title') }}</h1>
         <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
           {{ $t('contact.hero.subtitle') }}
@@ -12,10 +12,10 @@
 
     <!-- Contact Form & Info -->
     <section class="py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="site-container">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <!-- Contact Form -->
-          <div class="bg-white rounded-xl shadow-lg p-8 md:p-10">
+          <div class="bg-white rounded-xl border border-slate-200 p-8 md:p-10">
             <h2 class="text-3xl font-display font-bold text-gray-900 mb-6">{{ $t('contact.form.title') }}</h2>
             <div v-if="productInterest" class="mb-4 p-3 rounded-lg bg-primary-50 border border-primary-100 text-primary-800 text-sm font-medium flex items-center space-x-2">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@
               <button
                 type="submit"
                 :disabled="isSubmitting"
-                class="w-full bg-primary-700 text-white py-4 rounded-lg hover:bg-primary-800 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                class="w-full bg-primary-700 text-white py-4 rounded-lg hover:bg-primary-800 transition-all duration-200 font-semibold text-lg  transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 <span v-if="!isSubmitting">{{ $t('contact.form.submit') }}</span>
                 <span v-else class="flex items-center">
@@ -153,7 +153,7 @@
           <!-- Contact Information -->
           <div class="space-y-8">
             <!-- Contact Details -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
+            <div class="bg-white rounded-xl border border-slate-200 p-8">
               <h2 class="text-2xl font-display font-bold text-gray-900 mb-6">{{ $t('contact.info.title') }}</h2>
               
               <div class="space-y-6">
@@ -201,7 +201,7 @@
             </div>
 
             <!-- Business Hours -->
-            <div class="bg-gradient-to-br from-primary-700 to-primary-900 text-white rounded-xl shadow-lg p-8">
+            <div class="bg-gradient-to-br from-primary-700 to-primary-900 text-white rounded-xl border border-slate-200 p-8">
               <h3 class="text-xl font-bold mb-4">{{ $t('contact.businessHours.title') }}</h3>
               <div class="space-y-2 text-gray-200">
                 <div class="flex justify-between">
@@ -223,7 +223,7 @@
             </div>
 
             <!-- Quick Links -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
+            <div class="bg-white rounded-xl border border-slate-200 p-8">
               <h3 class="text-xl font-bold text-gray-900 mb-4">{{ $t('contact.quickActions.title') }}</h3>
               <div class="space-y-3">
                 <router-link

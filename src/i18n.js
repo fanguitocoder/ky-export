@@ -4,6 +4,10 @@ import es from './locales/es'
 
 // Detect browser language
 function getBrowserLocale() {
+  try {
+    const saved = localStorage.getItem('ky-locale')
+    if (saved === 'en' || saved === 'es') return saved
+  } catch {}
   const navigatorLocale = navigator.languages !== undefined
     ? navigator.languages[0]
     : navigator.language
