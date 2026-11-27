@@ -18,13 +18,13 @@ export default {
   },
   home: {
     hero: {
-      badge: '🌍 Global Trade Excellence',
-      title: 'Connecting',
-      titleHighlight: 'Quality',
-      titleEnd: 'to the World',
-      subtitle: 'Your trusted partner in international export. Premium Milexus products delivered globally with excellence.',
+      badge: 'International Trade & Export',
+      title: 'Global reach.',
+      titleHighlight: 'Quality without borders.',
+      titleEnd: '',
+      subtitle: 'Discover Milexus appliances and electronics for your business, with export support from Miami to international markets.',
       exploreProducts: 'Explore Products',
-      getQuote: 'Get Quote',
+      getQuote: 'Request a Quote',
       countries: 'Countries',
       shipments: 'Shipments',
       satisfaction: 'Satisfaction'
