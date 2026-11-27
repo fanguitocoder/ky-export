@@ -1,5 +1,6 @@
 export default {
   nav: {
+    menu: 'Abrir o cerrar menú de navegación',
     home: 'Inicio',
     about: 'Nosotros',
     products: 'Productos',
